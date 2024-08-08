@@ -3,7 +3,7 @@
     "websiteDescription": "store",
     "websiteLogo": "",
     "baseUrl": "http://localhost:3100",
-    "databaseConnectionString": "mongodb+srv://test:test@cluster0.rop9nvc.mongodb.net/storedb",
+    "databaseConnectionString": "mongodb+srv://test:test@cluster0.rop9nvc.mongodb.net/storedb?",
     "secretCookie": "c6d18ac4bd3938376216e14169a695efb6627ed9",
     "secretSession": "d4c6d2d3340fdf7158cda84995d452d2c745fd72"
 }
