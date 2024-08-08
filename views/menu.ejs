@@ -1,0 +1,75 @@
+<%- include('./includes/head.ejs') %> 
+<link rel="stylesheet" href="/css/admin.css">
+<link rel="stylesheet" href="/css/menu.css">
+<body>
+    
+<nav class="sidebar">
+    <div class="sidebar-sticky">
+        <ul class="nav">
+            <li class="nav-item">
+                <a href="/admin/dashboard"><img class="sidebar-brand" src="" alt="Brand"></a>
+                <a href="#" data-toggle="modal" data-target="#globalSearchModal" class="sidebar-search">
+                    <i data-feather="search"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/dashboard">
+                    <i data-feather="home"></i> &nbsp;
+                   Dashboard
+                </a>
+            </li>
+            <h6 class="sidebar-heading">
+                <span>Manage</span>
+            </h6>
+            
+            <li class="nav-item sidebar-addon">
+                <a class="nav-link" href="/admin/products">
+                    <i data-feather="tag"></i> &nbsp;
+                    Products
+                </a>
+                <a class="sidebar-link-addon" href="/admin/product/new">
+                    <i data-feather="plus"></i>
+                </a>
+            </li>
+         
+            <li class="nav-item sidebar-addon">
+                <a class="nav-link" href="/admin/orders">
+                    <i data-feather="package"></i> &nbsp;
+                    Orders
+                </a>
+                <a class="sidebar-link-addon" href="/admin/order/create">
+                    <i data-feather="plus"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/customers">
+                    <i data-feather="users"></i>  &nbsp;
+                    Customers
+                </a>
+            </li>
+            <li class="nav-item sidebar-addon">
+                <a class="nav-link" href="/admin/users">
+                    <i data-feather="user"></i> &nbsp;
+                    Users
+                </a>
+                <a class="sidebar-link-addon" href="/admin/user/new">
+                    <i data-feather="plus"></i>
+                </a>
+            </li>
+            <li class="nav-item sidebar-addon">
+                <a class="nav-link" href="/admin/transactions">
+                    <i data-feather="dollar-sign"></i> &nbsp;
+                    Transactions
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/reviews">
+                    <i data-feather="star"></i> &nbsp;
+                    Reviews
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<%- include('./includes/end.ejs') %> 
