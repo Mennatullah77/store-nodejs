@@ -56,19 +56,12 @@ exports.postSetup = (req, res, next) => {
 
 
 // GET Admin Login Page
-exports.getAdminLogin = (req, res, next) => {
+exports.getLogin = (req, res, next) => {
     res.render('login', {
         title: 'Login'
     });
 }
 
-
-exports.getAdminLogin = (req , res , next) => {
-    res.render(
-        'login', {
-            title : 'Login'
-        })
-}
 
 exports.postLogin = (req, res, next) => {
     const db = req.app.db;
@@ -83,6 +76,7 @@ exports.postLogin = (req, res, next) => {
     bcrypt.compare( req.body.userPassword ,user.userPassword)
     .then(result => {
         if(result){
+            res.redirect('/admin/dashboard')
             res.status(400).json({message: 'Login Successfull'})
             return;
         }
@@ -92,4 +86,11 @@ exports.postLogin = (req, res, next) => {
     })
    })
 
+}
+
+
+exports.dashboard = (req , res , next) => {
+    res.render('dashboard' , {
+        title : "Admin Dashboard"
+    })
 }
