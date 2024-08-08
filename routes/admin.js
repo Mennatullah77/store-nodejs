@@ -1,20 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const adminController = require('../controllers/admin')
 
-router.get('/setup', (req, res, next) => {
-    const db = req.app.db;
-    if (!db) {
-        return next(new Error('Database not initialized'));
-    }
+router.get('/setup', adminController.getSetup);
 
-    db.users.countDocuments().then(userCount => {
-        if (userCount === 0) {
-            return res.render('setup', {
-                title: 'Setup'
-            });
-        }
-        return res.redirect('/admin/login');
-    }).catch(next); // Add error handling
-});
+router.post('/setup' , adminController.postSetup )
+
+router.get('/login' , adminController.getAdminLogin )
 
 module.exports = router;
