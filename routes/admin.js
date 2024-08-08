@@ -2,14 +2,17 @@ const express = require('express');
 const router = express.Router();
 const adminController = require('../controllers/admin')
 
-router.get('/setup', adminController.getSetup);
+router.get('/admin/setup', adminController.getSetup);
 
-router.post('/setup' , adminController.postSetup )
+router.post('/admin/setup' , adminController.postSetup )
 
-router.get('/login' , adminController.getLogin )
+router.get('/admin/login' , adminController.getLogin )
 
-router.post('/login' , adminController.postLogin)
+router.post('/admin/login' , adminController.postLogin)
 
-router.get('/dashboard' , adminController.dashboard)
+router.get('/admin/dashboard' , adminController.dashboard)
+
+
+
 
 module.exports = router;

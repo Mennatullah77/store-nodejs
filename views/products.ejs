@@ -1,0 +1,51 @@
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/css/admin.css">
+<body
+    
+    <div class="container">
+        <%= title %>
+        <aside class="sidebar">
+            <%- include('./menu.ejs') %>  
+        </aside>
+        <main role="main" class="main-content">
+            <div class="header">
+                <h2>Products</h2>
+            </div>
+            <div class="search-bar">
+                <div class="input-group">
+                    <input type="text" name="product_filter" id="product_filter" class="input-field" placeholder="Filter products">
+                    <div class="input-group-append">
+                        <button class="btn btn-filter" id="btn_product_filter">Filter</button>
+                        <a href="/admin/products" class="btn btn-clear"><i data-feather="x-octagon"></i></a>
+                    </div>
+                </div>
+                <p class="info-text">"Products can be filtered by: product title or product description keywords"</p>
+            </div>
+            <% if(products.length > 0){ %>
+            <div class="product-list">
+                <ul class="list">
+                    <li class="list-item">
+                        <span class="status-text"><strong>"Published" </strong></span>
+                       
+                        <!-- <strong>"Products" - <span class="highlight">"Filtered term" : {{@root.searchTerm}} </span></strong> -->
+                        
+                        <strong>"Recent products"</strong>
+                     
+                    </li>
+                    <% for(product in products){%>
+                    <li class="list-item">
+                        <button class="btn btn-delete" data-id="{{this._id}}"> <i data-feather="trash-2"></i></button>
+                        <h4 class="checkbox-container"><input id="{{this._id}}" class="publishedState" type="checkbox" {{checkedState this.productPublished}}></h4>
+                        <div class="product-title"><a href="/admin/product/edit/{{this._id}}">this.productTitle</a></div>
+                    </li>
+                    <%} %>
+                </ul>
+            </div>
+            <% }%>
+            <div class="pagination">
+                <div id="pager" class="pager"></div>
+            </div>
+        </main>
+    </div>
+    <%- include('./includes/end.ejs') %>
+</body>

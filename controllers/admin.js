@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt')
 
 
-// GET Setup Page
+// GET Admin Setup Page
 exports.getSetup = (req, res, next) => {
     const db = req.app.db;
     if (!db) {
@@ -19,7 +19,7 @@ exports.getSetup = (req, res, next) => {
 }
 
 
-
+//POST Admin Setup
 exports.postSetup = (req, res, next) => {
     const db = req.app.db;
     const doc = {
@@ -62,11 +62,9 @@ exports.getLogin = (req, res, next) => {
     });
 }
 
-
+//POST Admin Login 
 exports.postLogin = (req, res, next) => {
     const db = req.app.db;
-       
-
    db.users.findOne({userEmail : req.body.userEmail})
    .then(user => {
     if(!user || user === null){
@@ -77,7 +75,7 @@ exports.postLogin = (req, res, next) => {
     .then(result => {
         if(result){
             res.redirect('/admin/dashboard')
-            res.status(400).json({message: 'Login Successfull'})
+            //res.status(400).json({message: 'Login Successfull'})
             return;
         }
         else{
@@ -85,12 +83,13 @@ exports.postLogin = (req, res, next) => {
         }
     })
    })
-
 }
 
-
+//GET Admin Dashboard Page
 exports.dashboard = (req , res , next) => {
     res.render('dashboard' , {
         title : "Admin Dashboard"
     })
 }
+
+
