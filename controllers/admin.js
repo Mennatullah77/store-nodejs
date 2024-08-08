@@ -69,3 +69,27 @@ exports.getAdminLogin = (req , res , next) => {
             title : 'Login'
         })
 }
+
+exports.postLogin = (req, res, next) => {
+    const db = req.app.db;
+       
+
+   db.users.findOne({userEmail : req.body.userEmail})
+   .then(user => {
+    if(!user || user === null){
+        res.status(400).json({message : 'A user with that email does not exist.'})
+        return;
+    }
+    bcrypt.compare( req.body.userPassword ,user.userPassword)
+    .then(result => {
+        if(result){
+            res.status(400).json({message: 'Login Successfull'})
+            return;
+        }
+        else{
+            res.status(400).json({message: 'Check password and try again'})
+        }
+    })
+   })
+
+}

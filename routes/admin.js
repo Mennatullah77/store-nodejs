@@ -8,4 +8,6 @@ router.post('/setup' , adminController.postSetup )
 
 router.get('/login' , adminController.getAdminLogin )
 
+router.post('/login' , adminController.postLogin)
+
 module.exports = router;

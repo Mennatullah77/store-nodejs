@@ -4,15 +4,15 @@
     <%- include('./includes/navigation.ejs') %>     
 
     <div class="container">
-        <form action="admin/postSetup" , method="post">
+        <form action="/admin/login" , method="post">
             <h2>Admin Login</h2>
             <div class="form-group">
                 <label for="userEmail">User Email</label>
-                <input type="email" id="userEmail" placeholder="Enter your email" required class="form-control">
+                <input type="email" id="userEmail" name = "userEmail" placeholder="Enter your email" required class="form-control">
             </div>
             <div class="form-group">
                 <label for="userPassword">User Password</label>
-                <input type="password" id="userPassword" placeholder="Enter your password" required class="form-control">
+                <input type="password" id="userPassword" name="userPassword" placeholder="Enter your password" required class="form-control">
             </div>
             <button type="submit" class="btn-submit">Login</button>
         </form>
