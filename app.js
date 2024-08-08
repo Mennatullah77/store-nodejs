@@ -5,6 +5,7 @@ const { getConfig } = require('./lib/config');
 const path = require('path');
 const colors = require('colors');
 const admin = require('./routes/admin');
+const product = require('./routes/product');
 
 const app = express();
 const config = getConfig();
@@ -24,7 +25,9 @@ initDb(config.databaseConnectionString,async (err, db) => {
     app.db = db;
     app.config = config;
     
-    app.use('/admin', admin);
+    app.use('/', product);
+    app.use('/', admin);
+
 
     app.use((req, res, next) => {
         const err = new Error('Not Found');

@@ -1,0 +1,62 @@
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/css/product-new.css">
+<body>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <%- include('./menu.ejs') %>  
+        </aside>
+        <main role="main" class="main-content">
+            <form class="product-form" id="productNewForm" action="/admin/product/new" method="POST">
+                <div class="form-header">
+                    <button  class="btn btn-save" type="submit">Add product</button>
+                    <h2>"New product"</h2>
+                </div>
+                <div class="form-group">
+                    <label for="productTitle">"Product title"</label>
+                    <input type="text" id="productTitle" class="input-field" minlength="5" maxlength="200"  name="productTitle"/>
+                </div>
+                <div class="form-group row">
+                    <div class="form-group-item">
+                        <label for="productPrice">"Product price"</label>
+                        <div class="input-group">
+                            <label class="input-label">$</label>
+                            <input type="number" id="productPrice" class="input-field" step="any" name="productPrice" required/>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="form-group row">
+                    <div class="form-group-item">
+                        <label for="productPublished">"Status" </label>
+                        <select class="input-field" id="productPublished" name="productPublished">
+                            <option value="true" selected>"Published" </option>
+                            <option value="false">"Draft" </option>
+                        </select>
+                    </div>
+                   
+                    <div class="form-group-item">
+                        <label for="productStock">"Stock level" </label>
+                        <input type="number" id="productStock" class="input-field" name="productStock" step="any" />
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">"Product description"</label>
+                    <textarea minlength="5" rows="10" id="productDescription" class="input-field" name="productDescription" required></textarea>
+                </div>
+                
+            </form>
+        </main>
+    </div>
+   
+    
+    <script>
+        $(document).ready(function() {
+            $('#productDescription').summernote({
+                height: 300,
+                minHeight: null
+            });
+        });
+    </script>
+</body>
