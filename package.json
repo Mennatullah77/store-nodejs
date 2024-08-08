@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "express": "^4.19.2",
+    "lodash": "^4.17.21",
+    "mongodb": "^6.8.0",
+    "mongodb-uri": "^0.9.7"
+  }
+}
