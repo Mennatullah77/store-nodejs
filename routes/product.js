@@ -13,4 +13,7 @@ router.get('/admin/product/edit/:productId' , restrict , checkAccess , productCo
 
 router.post('/admin/product/edit' , restrict , checkAccess ,productController.postEditProduct)
 
+router.post('/admin/product/delete/:productId' , restrict , checkAccess ,productController.postDeleteProduct)
+
+
 module.exports = router;

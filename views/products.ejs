@@ -34,11 +34,19 @@
                      
                     </li>
                     <% for(let product of products){%>
-                    <li class="list-item">
-                        <button class="btn btn-delete" data-id="{{this._id}}"> <i data-feather="trash-2"></i></button>
-                        <h4 class="checkbox-container"><input id="<%=product._id%>" class="publishedState" type="checkbox" ></h4>
-                        <div class="product-title"><a href="/admin/product/edit/<%=product._id%>"><%=product.productTitle%></a></div>
-                    </li>
+                        <li class="list-item">
+                            <form action="/admin/product/delete/<%=product._id%>" method="POST" class="delete-form">
+                                <button type="submit" class="btn btn-delete">
+                                    <i data-feather="trash-2"></i> Delete
+                                </button>
+                            </form>
+                            <h4 class="checkbox-container">
+                                <input id="<%= product._id %>" class="publishedState" type="checkbox">
+                            </h4>
+                            <div class="product-title">
+                                <a href="/admin/product/edit/<%= product._id %>"><%= product.productTitle %></a>
+                            </div>
+                        </li>                        
                     <%} %>
                 </ul>
             </div>

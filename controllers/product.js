@@ -109,3 +109,17 @@ exports.postEditProduct = (req, res, next) => {
 };
 
 
+exports.postDeleteProduct = (req , res , next) => {
+    db = req.app.db;
+    productId = req.params.productId
+    db.products.deleteOne({_id: new ObjectId(productId)})
+    .then(
+        res.redirect('/admin/products')
+    )
+    .catch(err => {
+        console.log(`Error deleting the products : ${err}`);
+        res.status(400).json({ message: 'Error deleting document' });
+    })
+}
+
+
