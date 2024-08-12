@@ -30,6 +30,7 @@ exports.postNewProduct = (req, res, next) => {
         productTitle: req.body.productTitle,
         productPrice: req.body.productPrice,
         productDescription: req.body.productDescription,
+        productCategory : req.body.productCategory,
         productPublished: convertBool(req.body.productPublished),
         productAddedDate: new Date(),
         productStock: safeParseInt(req.body.productStock) || null,

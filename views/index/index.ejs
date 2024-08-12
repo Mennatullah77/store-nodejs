@@ -13,7 +13,8 @@
                 <li class="nav-item">Home</li>
                 <% if (menuItems.length > 0) { %>
                     <% for (let menu of menuItems) { %>
-                        <li class="nav-item"><%= menu.title %></li>
+                        
+                        <li class="nav-item"><a href="/category/<%= menu.title %>"> <%= menu.title %></a></li>
                     <% } %>
                 <% } %>
             </ul>
