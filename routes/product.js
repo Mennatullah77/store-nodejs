@@ -1,15 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const productController = require('../controllers/product')
+const { restrict, checkLogin, checkAccess } = require('../lib/auth')
 
-router.get('/admin/products' , productController.getProducts)
+router.get('/admin/products' ,restrict, productController.getProducts)
 
-router.get('/admin/product/new' , productController.getNewProduct)
+router.get('/admin/product/new' , restrict ,productController.getNewProduct)
 
-router.post('/admin/product/new' , productController.postNewProduct)
+router.post('/admin/product/new' , restrict , productController.postNewProduct)
 
-router.get('/admin/product/edit/:productId' , productController.getEditProduct)
+router.get('/admin/product/edit/:productId' , restrict ,productController.getEditProduct)
 
-router.post('/admin/product/edit' , productController.postEditProduct)
+router.post('/admin/product/edit' , restrict , productController.postEditProduct)
 
 module.exports = router;

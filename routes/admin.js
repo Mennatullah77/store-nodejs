@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const adminController = require('../controllers/admin')
+const { restrict, checkLogin, checkAccess } = require('../lib/auth')
 
 router.get('/admin/setup', adminController.getSetup);
 
@@ -10,17 +11,17 @@ router.get('/admin/login' , adminController.getLogin )
 
 router.post('/admin/login' , adminController.postLogin)
 
-router.get('/admin/dashboard' , adminController.dashboard)
+router.get('/admin/dashboard' , restrict , adminController.dashboard)
 
-router.get('/admin/users' , adminController.getUsers)
+router.get('/admin/users' , restrict ,adminController.getUsers)
 
-router.get('/admin/user/new' , adminController.getNewUser)
+router.get('/admin/user/new' , restrict , adminController.getNewUser)
 
-router.post('/admin/user/new' , adminController.postNewUser)
+router.post('/admin/user/new' , restrict , adminController.postNewUser)
 
-router.get('/admin/user/edit/:userId' , adminController.getEditUser)
+router.get('/admin/user/edit/:userId' , restrict , adminController.getEditUser)
 
-router.post('/admin/user/edit/:userId' , adminController.postEditUser)
+router.post('/admin/user/edit/:userId' , restrict ,adminController.postEditUser)
 
 router.get('/admin/logout' , adminController.logout)
 
