@@ -85,4 +85,7 @@ const bcrypt = require('bcrypt');
         req.session.customerSecondname = "";
         res.redirect('/login')
     }
+
+
+    
     

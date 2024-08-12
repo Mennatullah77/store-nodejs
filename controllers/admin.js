@@ -220,3 +220,64 @@ exports.logout =(req , res , next) => {
     res.redirect('/admin/login');
 }
 
+
+exports.getCustomers = (req , res , next) => {
+    
+    const db = req.app.db;
+    db.customers.find().toArray()
+    .then(customers => {
+        res.render('customers' , {
+            title : "Customers",
+            customers: customers,
+            session: req.session
+        })
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
+
+exports.viewCustomer = (req , res , next) => {
+    
+    const db = req.app.db;
+    customerId = req.params.customerId
+    db.customers.findOne({_id : new ObjectId(customerId)})
+    .then(customer => {
+        res.render('customer' , {
+            title : "Customer",
+            customer: customer,
+            session: req.session
+        })
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
+
+
+exports.updateCustomer = (req , res , next) => {
+    console.log("I am here")
+    const db = req.app.db;
+    customerId = req.params.customerId
+    const customerDoc = {
+        email: req.body.email,
+        firstName: req.body.firstName,
+        secondName: req.body.secondName,
+        address1: req.body.address1,
+        address2: req.body.address2,
+        state: req.body.state,
+        country: req.body.country,
+        postcode: req.body.postcode,
+        phonenumber: req.body.phonenumber,
+        password: bcrypt.hashSync(req.body.userPassword, 10), 
+    }
+    db.customers.updateOne({_id : new ObjectId(customerId)} , {$set : {customerDoc}} , {})
+    .then(customer => {
+        console.log("successfully updated the product!")
+        res.redirect('/admin/customers')
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
+

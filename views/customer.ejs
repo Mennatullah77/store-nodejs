@@ -1,0 +1,72 @@
+
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/css/admin.css">
+<link rel="stylesheet" href="/css/customer.css">
+<body
+
+    <div class="container">
+        
+        <a href=""> Update Customer</a>
+        <aside class="sidebar">
+            <%- include('./menu.ejs') %>  
+        </aside>
+        <main role="main" class="main-content">
+            <div class="header">
+                <h2>Customers</h2>
+            </div>
+        <form action="/admin/customer/update/<%=customer._id%>" method="post" novalidate>  
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" placeholder= "<%=customer.firstName %>" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="secondName">Second Name</label>
+                <input type="text" id="secondName" name="secondName" placeholder="<%=customer.secondName %>" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="userEmail">User Email</label>
+                <input type="email" id="userEmail" name="email" placeholder="<%=customer.email %>" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="userAddress1">User Address 1</label>
+                <input type="text" id="userAddress1" name="address1" placeholder="<%=customer.address1 %>" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="userAddress2">User Address 2</label>
+                <input type="text" id="userAddress2" name="address2" placeholder="<%=customer.address2 %>" required class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" placeholder="<%=customer.state %>" required class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="state">Country</label>
+                <input type="text" id="Country" name="Country" placeholder="<%=customer.counrty %>" required class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="postcode"> Postcode</label>
+                <input type="number" id="postcode" name="postcode" placeholder="<%=customer.postcode %>" required class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="phonenumber">Phone Number</label>
+                <input type="number" id="phonenumber" name="phonenumber" placeholder="<%=customer.phonenumber %>" required class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="userPassword">User Password</label>
+                <input type="password" id="userPassword" name="userPassword" placeholder="Enter a new password" required class="form-control">
+            </div>
+            
+            <button type="submit" class="btn-submit">Update Customer</button>
+        </form>
+        </main>
+    </div> 
+</body>
+</html>
+
+
+  

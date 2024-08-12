@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer List</title>
+    <link rel="stylesheet" href="/customer.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <%- include('./menu.ejs') %>  
+    </aside>
+    <main class="container">
+        <% if (customers.length > 0) { %>
+        <div class="customer-list">
+            <div class="header-row">
+                <div class="header-cell"><strong>Email Address</strong></div>
+                <div class="header-cell"><strong>Name</strong></div>
+                <div class="header-cell"><strong>Phone Number</strong></div>
+            </div>
+            <ul class="customer-items">
+                <% for (let customer of customers) { %>
+                <li class="customer-item">
+                    <a href="/admin/customer/view/<%= customer._id %>" class="customer-link">
+                        <div class="customer-row">
+                            <div class="customer-cell"><%= customer.email %></div>
+                            <div class="customer-cell"><%= customer.firstName %> <%= customer.secondName %></div>
+                            <div class="customer-cell"><%= customer.phone %></div>
+                        </div>
+                    </a>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+        <% } else { %>
+        <h4 class="no-customers">No customers found</h4>
+        <% } %>
+        </main>
+</body>
+</html>

@@ -13,6 +13,8 @@ router.post('/admin/login' , adminController.postLogin)
 
 router.get('/admin/dashboard' , restrict , adminController.dashboard)
 
+router.get('/admin/customers' , restrict ,checkAccess, adminController.getCustomers)
+
 router.get('/admin/users' , restrict ,adminController.getUsers)
 
 router.get('/admin/user/new' , restrict , checkAccess , adminController.getNewUser)
@@ -23,7 +25,13 @@ router.get('/admin/user/edit/:userId' , restrict , checkAccess, adminController.
 
 router.post('/admin/user/edit/:userId' , restrict ,checkAccess ,adminController.postEditUser)
 
+router.get('/admin/customer/view/:customerId' , restrict ,checkAccess, adminController.viewCustomer)
+
+router.post('/admin/customer/update/:customerId' , restrict ,checkAccess, adminController.updateCustomer)
+
 router.get('/admin/logout' , adminController.logout)
+
+
 
 
 
