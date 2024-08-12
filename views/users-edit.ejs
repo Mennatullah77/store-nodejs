@@ -1,0 +1,41 @@
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/css/product-new.css">
+<body>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <%- include('./menu.ejs') %>  
+        </aside>
+        <main role="main" class="main-content">
+            <form class="user-form" id="userNewForm" action="/admin/user/new" method="POST">
+                <div class="form-header">
+                    <button type="submit" class="btn-submit">Add User</button>
+                    <h2>"New usert"</h2>
+                </div>
+                <div class="form-group">
+                    <label for="userName">User Name</label>
+                    <input type="text" id="userName" name="userName" placeholder=<%= user.userName %> class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="userEmail">User Email</label>
+                    <input type="email" id="userEmail" name="userEmail" placeholder=<%= user.userEmail %> required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="userPassword">User Password</label>
+                    <input type="password" id="userPassword" name="userPassword" placeholder="User password" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="confirmedPassword">Confirm Password</label>
+                    <input type="password" id="confirmedPassword" name="confirmedPassword" placeholder="Confirm your password" required class="form-control">
+                </div>  
+                <div class="checkbox">
+                    <label>
+                        <input id="userAdmin"  type="checkbox">User is admin?
+                    </label>
+                </div>
+            </form>
+        </main>
+    </div>
+    <%- include('./includes/end.ejs') %> 
+
+
