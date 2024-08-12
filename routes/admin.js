@@ -15,13 +15,13 @@ router.get('/admin/dashboard' , restrict , adminController.dashboard)
 
 router.get('/admin/users' , restrict ,adminController.getUsers)
 
-router.get('/admin/user/new' , restrict , adminController.getNewUser)
+router.get('/admin/user/new' , restrict , checkAccess , adminController.getNewUser)
 
-router.post('/admin/user/new' , restrict , adminController.postNewUser)
+router.post('/admin/user/new' , restrict , checkAccess , adminController.postNewUser)
 
-router.get('/admin/user/edit/:userId' , restrict , adminController.getEditUser)
+router.get('/admin/user/edit/:userId' , restrict , checkAccess, adminController.getEditUser)
 
-router.post('/admin/user/edit/:userId' , restrict ,adminController.postEditUser)
+router.post('/admin/user/edit/:userId' , restrict ,checkAccess ,adminController.postEditUser)
 
 router.get('/admin/logout' , adminController.logout)
 

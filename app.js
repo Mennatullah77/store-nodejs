@@ -19,7 +19,7 @@ const { random } = require('lodash');
 
 const app = express();
 const config = getConfig();
-console.log("config: "+config.databaseConnectionString)
+
 const sessionstore = new sessionStore(
    { uri: config.databaseConnectionString,
     collection: 'sessions'}
