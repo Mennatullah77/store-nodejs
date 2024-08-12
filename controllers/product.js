@@ -2,16 +2,23 @@ const {convertBool , safeParseInt } = require('../lib/common')
 const {ObjectId} = require('mongodb')
 
 exports.getProducts = (req , res , next) => {
-    console.log('I am here')
-    res.render('products' , {
-        title: 'Products' ,
-        products: []
+    const db = req.app.db;
+    let products = []
+    db.products.find().toArray()
+    .then(products => {
+        res.render('products' , {
+            title: 'Products' ,
+            products: products,
+            session : req.session
+        })  
     })
+    
 }
 
 exports.getNewProduct = (req , res , next) => {
     res.render('product-new' , {
-        title: 'Add new Product'
+        title: 'Add new Product',
+        session : req.session
     })
 }
 
@@ -54,7 +61,8 @@ exports.getEditProduct = (req, res, next) => {
             }
             res.render('product-edit', {
                 pageTitle: 'Admin Edit Product', // Consistent case
-                product: product
+                product: product,
+                session : req.session
             });
         })
         .catch(err => {

@@ -1,0 +1,46 @@
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/css/admin.css">
+<body
+    
+    <div class="container">
+        <a href="/admin/user/new"> New User</a>
+        <aside class="sidebar">
+            <%- include('./menu.ejs') %>  
+        </aside>
+        <main role="main" class="main-content">
+            <div class="header">
+                <h2>Users</h2>
+            </div>
+            <% if(users.length > 0){ %>
+            <div class="product-list">
+                <ul class="list">
+                    <% for(let user of users){%>
+                        <li class="list-group-item">
+                            <strong>User</strong> <%= user.userName %> - (<%= user.userEmail %>)
+                            <span class="float-right">
+                                <strong>"Role"</strong>
+                                <% if(user.isAdmin) { %>
+                                    <span>Admin</span>
+                                <% if(user.isOwner){ %>
+                                        (Owner)
+                                    <%}%>
+                                 <%}%>
+
+                                <% if(!user.isAdmin){%>
+                                    <span>User</span>
+                                <%}%>
+
+                                
+                                    <a href="/admin/user/edit/<%= user._id %>"><i data-feather="edit"></i></a>
+                                    <a href="#" class="userDelete text-danger" ><i data-feather="trash-2"></i></a>
+                               
+                            </span>
+                        </li>
+                    <%} %>
+                </ul>
+            </div>
+            <% }%>
+        </main>
+    </div>
+    <%- include('./includes/end.ejs') %>
+
