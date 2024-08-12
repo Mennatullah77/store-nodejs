@@ -13,6 +13,7 @@ const crypto = require('crypto')
 const admin = require('./routes/admin');
 const product = require('./routes/product');
 const customer = require('./routes/customer');
+const index = require('./routes/index')
 const { url } = require('inspector');
 const { Collection } = require('mongodb');
 const { random } = require('lodash');
@@ -70,6 +71,7 @@ initDb(config.databaseConnectionString,async (err, db) => {
     app.use('/', product);
     app.use('/', admin);
     app.use('/', customer);
+    app.use('/', index);
 
 
     app.use((req, res, next) => {

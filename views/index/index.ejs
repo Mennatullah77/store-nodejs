@@ -10,10 +10,9 @@
     <div class="navcontainer">
         <nav class="navbar">
             <ul class="nav-list">
-                <li class="nav-item">Home</li>
+                <li class="nav-item"><a href="/">Home</a></li>
                 <% if (menuItems.length > 0) { %>
                     <% for (let menu of menuItems) { %>
-                        
                         <li class="nav-item"><a href="/category/<%= menu.title %>"> <%= menu.title %></a></li>
                     <% } %>
                 <% } %>
@@ -24,6 +23,12 @@
                     <button type="submit" class="search-button">Search</button>
                 </div>
             </form>
+            <%if(session.customerPresent){%>
+            <form action="/logout" , method="post">
+                    <button type="submit" class="search-button">Logout</button>
+                </div>
+            </form>
+            <%}%>
         </nav>
     </div>
     <main>
