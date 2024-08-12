@@ -3,13 +3,14 @@
 <body
     
     <div class="container">
-        <%= title %>
+        <a href="/admin/product/new"> New Product</a>
         <aside class="sidebar">
             <%- include('./menu.ejs') %>  
         </aside>
         <main role="main" class="main-content">
             <div class="header">
                 <h2>Products</h2>
+                
             </div>
             <div class="search-bar">
                 <div class="input-group">
@@ -32,11 +33,11 @@
                         <strong>"Recent products"</strong>
                      
                     </li>
-                    <% for(product in products){%>
+                    <% for(let product of products){%>
                     <li class="list-item">
                         <button class="btn btn-delete" data-id="{{this._id}}"> <i data-feather="trash-2"></i></button>
-                        <h4 class="checkbox-container"><input id="{{this._id}}" class="publishedState" type="checkbox" {{checkedState this.productPublished}}></h4>
-                        <div class="product-title"><a href="/admin/product/edit/{{this._id}}">this.productTitle</a></div>
+                        <h4 class="checkbox-container"><input id="<%=product._id%>" class="publishedState" type="checkbox" ></h4>
+                        <div class="product-title"><a href="/admin/product/edit/<%=product._id%>"><%=product.productTitle%></a></div>
                     </li>
                     <%} %>
                 </ul>
@@ -48,4 +49,4 @@
         </main>
     </div>
     <%- include('./includes/end.ejs') %>
-</body>
+

@@ -1,29 +1,41 @@
+/* Basic Reset */
+body, h2, p, ul, li, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Container for the layout */
 .container {
     display: flex;
+    height: 100vh; /* Full viewport height */
 }
 
+/* Sidebar styles */
 .sidebar {
-    width: 250px;
-    background: #f4f4f4;
+    width: 250px; /* Adjust width as needed */
+    background-color: #2c3e50;
+    color: #ecf0f1;
     padding: 20px;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
 }
 
+/* Main content styles */
 .main-content {
     flex: 1;
-    padding: 20px;
+    background-color: #f8f9fa;
+    overflow-y: auto;
 }
 
-/* Forms */
-.form-group {
+.header h2 {
     margin-bottom: 20px;
+    font-size: 24px;
 }
 
-.form-control {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+.search-bar {
+    margin-bottom: 20px;
 }
 
 .input-group {
@@ -31,67 +43,90 @@
     align-items: center;
 }
 
-.input-group-text {
-    padding: 8px;
-    background: #eee;
-    border: 1px solid #ddd;
-    border-radius: 4px 0 0 4px;
+.input-field {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-.btn {
-    padding: 8px 12px;
+.input-group-append {
+    margin-left: 10px;
+}
+
+.btn-filter {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
-.btn-info {
-    background-color: #17a2b8;
+.btn-clear {
+    padding: 10px;
+    background-color: #ffc107;
     color: #fff;
-}
-
-.btn-success {
-    background-color: #28a745;
-    color: #fff;
-}
-
-.btn-primary {
-    background-color: #007bff;
-    color: #fff;
-}
-
-.btn-default {
-    background-color: #6c757d;
-    color: #fff;
-}
-
-.close {
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
+}
+
+.info-text {
+    color: #ffc107;
+    margin-top: 10px;
+}
+
+.product-list {
+    margin-top: 20px;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.status-text {
+    flex: 1;
+}
+
+.btn-delete {
+    position: absolute;
+    right: 60px;
     background: none;
     border: none;
+    color: #dc3545;
+    font-size: 18px;
+    cursor: pointer;
 }
 
-/* Modal */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+.checkbox-container {
+    position: absolute;
+    right: 100px;
 }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+.product-title a {
+    text-decoration: none;
+    color: #007bff;
 }
 
-.modal-header, .modal-footer {
-    padding: 10px;
+.product-title a:hover {
+    text-decoration: underline;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pager {
+    display: inline-block;
 }
