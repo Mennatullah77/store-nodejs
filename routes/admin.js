@@ -22,6 +22,8 @@ router.get('/admin/user/edit/:userId' , adminController.getEditUser)
 
 router.post('/admin/user/edit/:userId' , adminController.postEditUser)
 
+router.get('/admin/logout' , adminController.logout)
+
 
 
 

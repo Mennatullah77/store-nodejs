@@ -211,3 +211,12 @@ exports.postEditUser = (req , res , next) => {
         });   
 }
 
+
+exports.logout =(req , res , next) => {
+    req.session.user = "";
+    req.session.userName = "";
+    req.session.userId = "";
+    req.session.isAdmin = "";
+    res.redirect('/admin/login');
+}
+

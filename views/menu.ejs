@@ -27,9 +27,11 @@
                     <i data-feather="tag"></i> &nbsp;
                     Products
                 </a>
+                <%if(session.isAdmin === true){%>
                 <a class="sidebar-link-addon" href="/admin/product/new">
                     <i data-feather="plus"></i>
                 </a>
+                <%}%>
             </li>
          
             <li class="nav-item sidebar-addon">
@@ -68,6 +70,14 @@
                     Reviews
                 </a>
             </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/logout">
+                    <i data-feather="log-out"></i> &nbsp;
+                    Log Out
+                </a>
+            </li>
+            
         </ul>
     </div>
 </nav>
