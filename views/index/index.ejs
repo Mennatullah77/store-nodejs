@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div class="navcontainer">
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li class="nav-item">Home</li>
+                <% if (menuItems.length > 0) { %>
+                    <% for (let menu of menuItems) { %>
+                        <li class="nav-item"><%= menu.title %></li>
+                    <% } %>
+                <% } %>
+            </ul>
+            <form class="search-form">
+                <div class="searchcontainer">
+                    <input type="search" class="search-input" placeholder="Search shop">
+                    <button type="submit" class="search-button">Search</button>
+                </div>
+            </form>
+        </nav>
+    </div>
+    <main>
+        <% if (products.length > 0) { %>
+            <div class="grid">
+                <% for (let product of products) { %>
+                    <article class="card product-item">
+                        <header class="card__header">
+                            <h1 class="product__title"><%= product.productTitle %></h1>
+                        </header>
+                        <div class="card__image">
+                            <img src="<%= product.imageUrl %>"
+                                alt="<%= product.title %>">
+                        </div>
+                        <div class="card__content">
+                            <h2 class="product__price">$<%= product.productPrice %></h2>
+                            <p class="product__description"><%= product.productDescription %></p>
+                        </div>
+                        <div class="card__actions">
+                            <a href="/products/<%= product._id %>" class="btn">Details</a>
+                            <button class="add-to-cart"> Add to cart </button>
+                        </div>
+                    </article>
+                <% } %>
+            </div>
+            
+        <% } else { %>
+            <h1>No Products Found!</h1>
+        <% } %>
+    </main>
+    
+</body>
+</html>
+

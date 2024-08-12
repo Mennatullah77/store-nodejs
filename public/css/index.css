@@ -1,0 +1,171 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  main {
+    padding: 1rem;
+    margin: auto;
+  }
+  
+  form {
+    display: inline;
+  }
+  
+  .centered {
+    text-align: center;
+  }
+
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+  }
+  
+  .card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  }
+  
+  .card__header,
+  .card__content {
+    padding: 1rem;
+  }
+  
+  .card__header h1,
+  .card__content h1,
+  .card__content h2,
+  .card__content p {
+    margin: 0;
+  }
+  
+  .card__image {
+    width: 100%;
+  }
+  
+  .card__image img {
+    width: 100%;
+  }
+  
+  .card__actions {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .card__actions button,
+  .card__actions a {
+    margin: 0 0.25rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    text-decoration: none;
+    font: inherit;
+    border: 1px solid #00695c;
+    color: #00695c;
+    background: white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+.navcontainer {
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    margin-right: 20px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    color: #f0a500;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.searchcontainer {
+    display: flex;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    padding: 8px 12px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 200px;
+}
+
+.search-button {
+    background-color: #f0a500;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 600;
+}
+
+.search-button:hover {
+    background-color: #d18f00;
+}
+
+
+.product-form {
+    width: 20rem;
+    max-width: 90%;
+    margin: auto;
+    display: block;
+}
+
+.product-item {
+    width: 20rem;
+    max-width: 95%;
+    margin: 1rem;
+}
+
+.product__title {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.product__price {
+    text-align: center;
+    color: #4d4d4d;
+    margin-bottom: 0.5rem;
+}
+
+.product__description {
+    text-align: center;
+}

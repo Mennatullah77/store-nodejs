@@ -100,7 +100,7 @@ exports.postEditProduct = (req, res, next) => {
     db.products.updateOne({ _id: productId }, { $set: productDoc }, {})
         .then(product => {
             console.log("Product updated with ID:", productId);
-            res.redirect(`/admin/product/edit/${productId}`);
+            res.redirect(`/admin/products`);
         })
         .catch(err => {
             console.error(`Error updatinf document: ${err}`);
